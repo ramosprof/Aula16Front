@@ -33,8 +33,9 @@ export default function FilmeForm({filme}: Props)
         const payload = {
             titulo,
             imagem,
-            nota
+            nota: Number(nota),
         };
+
 
         if(filme)
             //chama o serviço para editar
@@ -46,6 +47,7 @@ export default function FilmeForm({filme}: Props)
 
         //volta pra home
         router.push('/');
+        router.refresh();
         
 
 

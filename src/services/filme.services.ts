@@ -1,5 +1,6 @@
 import {Filme, CreateFilmeDTO, UpdateFilmeDTO} from "@/tipos/filme";
 
+
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL;
 
@@ -41,7 +42,32 @@ export async function updateFilme(id: number, filme: UpdateFilmeDTO): Promise<vo
 }
 
 
+
+
 export async function deleteFilme(id: number): Promise<void>
 {
+    const response = await fetch(`${API_URL}/filmes/${id}`, {
+        method: "DELETE",
+    });
 
+    if (!response.ok) {
+        throw new Error("Erro ao excluir filme");
+    }
 }
+
+
+   export async function getFilme(id: string): Promise<Filme> {
+
+    const response = await fetch(
+        `${API_URL}/filmes/${id}`
+    );
+
+    if (!response.ok) {
+        throw new Error("Erro ao buscar filme.");
+    }
+
+    const dados = await response.json();
+
+    return dados;
+}
+

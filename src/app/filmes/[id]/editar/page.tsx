@@ -1,5 +1,5 @@
 import FilmeForm from "@/componentes/FilmeForm/FilmeForm";
-import { getFilmes } from "@/services/filme.services";
+import { getFilme } from "@/services/filme.services";
 
 interface Props{
 
@@ -14,7 +14,7 @@ export default async function EditarFilmePage({ params}: Props) {
   //utilizar o megabrain na força maxima (está no git)
   //ele precisa saber mais
   //libera o mineset
-  const filme = await getFilmes(id);
+  const filme = await getFilme(id);
 
   return (
 
